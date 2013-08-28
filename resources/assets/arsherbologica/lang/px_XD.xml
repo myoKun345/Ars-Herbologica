@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties version="1.0">
+	<comment>Pacifican (px_XD) Localization File</comment>
+	<entry key="itemGroup.ArsHerbologica">Ars Herbologica</entry>
+	
+	<entry key="tile.blockBushRaspberry.name">Kiboku Kanao Rahi</entry>
+	<entry key="tile.blockBushBlueberry.name">Kiboku Kanao Kuragi</entry>
+	<entry key="tile.blockBushCranberry.name">Kiboku Kanao Korã</entry>
+	<entry key="tile.blockBushBarberry.name">Kiboku Kanao Megi</entry>
+	<entry key="tile.blockBushBearberry.name">Kiboku Kanao Koma</entry>
+	<entry key="tile.blockBushRedCurrant.name">Kiboku Kara Rahi</entry>
+	<entry key="tile.blockBushWhiteCurrant.name">Kiboku Kara Bane</entry>
+	<entry key="tile.blockBushBlackCurrant.name">Kiboku Kara Magũ</entry>
+	<entry key="tile.blockBushElderberry.name">Kiboku Kanao Ni'a</entry>
+	<entry key="tile.blockBushGooseberry.name">Kiboku Kanao Kato'o</entry>
+	<entry key="tile.blockBushGrape.name">Turu Waine</entry>
+	<entry key="tile.blockBushCherry.name">Kiboku Ti'eru</entry>
+	<entry key="tile.blockBushStrawberry.name">Kiboku Kanao Ropẽ</entry>
+	<entry key="tile.blockBushSoarynberry.name">Kiboku Kanao Sorĩ</entry>
+	
+	<entry key="item.berryRaspberry.name">Kanao Rahi</entry>
+	<entry key="item.berryBlueberry.name">Kanao Kuragi</entry>
+	<entry key="item.berryCranberry.name">Kanao Korã</entry>
+	<entry key="tile.berryBarberry.name">Kanao Megi</entry>
+	<entry key="tile.berryBearberry.name">Kanao Koma</entry>
+	<entry key="tile.berryRedCurrant.name">Kara Rahi</entry>
+	<entry key="tile.berryWhiteCurrant.name">Kara Bane</entry>
+	<entry key="tile.berryBlackCurrant.name">Kara Magũ</entry>
+	<entry key="tile.berryElderberry.name">Kanao Ni'a</entry>
+	<entry key="tile.berryGooseberry.name">Kanao Kato'o</entry>
+	<entry key="tile.berryGrape.name">Waine</entry>
+	<entry key="tile.berryCherry.name">Ti'eru</entry>
+	<entry key="tile.berryStrawberry.name">Kanao Ropẽ</entry>
+	<entry key="item.berrySoarynberry.name">Kanao Sorĩ</entry>
+	
+	<entry key="item.fruitOrange.name">Mika</entry>
+	<entry key="item.fruitBanana.name">Maeka</entry>
+	<entry key="item.fruitPomegranate.name">Dakuro</entry>
+</properties>

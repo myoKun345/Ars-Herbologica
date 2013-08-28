@@ -33,18 +33,26 @@ public class HerbologicaIDs {
 		
 		/* Default IDs */
 		public static final int BERRY_DEFAULT = 14000;
+		public static final int FRUIT_DEFAULT = 14001;
+		public static final int PLANT_DEFAULT = 14002;
 		
 		/* Current IDs */
 		public static int BERRY;
+		public static int FRUIT;
+		public static int PLANT;
 		
 		/* Config Keys */
 		public static final String BERRY_KEY = "BerryID";
+		public static final String FRUIT_KEY = "FruitID";
+		public static final String PLANT_KEY = "PlantID";
 		
 		/* Unlocalized Names */
 		public static final LinkedList<String> BERRY_UNLOCALIZED = new LinkedList<String>();
+		public static final LinkedList<String> FRUIT_UNLOCALIZED = new LinkedList<String>();
+		public static final LinkedList<String> PLANT_UNLOCALIZED = new LinkedList<String>();
 		
-	/* Berry Utility Lists */
-	public static final LinkedList<Integer> BERRY_HUNGER_VALUE = new LinkedList<Integer>();
-	public static final LinkedList<Float> BERRY_SATURATION_VALUE = new LinkedList<Float>();
+	/* API Utility Lists */
 	public static final LinkedList<String> BERRY_MOD_ID = new LinkedList<String>();
+	public static final LinkedList<String> FRUIT_MOD_ID = new LinkedList<String>();
+	public static final LinkedList<String> PLANT_MOD_ID = new LinkedList<String>();
 }

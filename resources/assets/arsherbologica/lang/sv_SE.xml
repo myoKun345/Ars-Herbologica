@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties version="1.0">
+	<comment>Swedish (sv_SE) Localization File</comment>
+	<entry key="itemGroup.ArsHerbologica">Ars Herbologica</entry>
+	
+	<entry key="tile.blockBushRaspberry.name">Hallonbuske</entry>
+	<entry key="tile.blockBushBlueberry.name">Blåbärbuske</entry>
+	<entry key="tile.blockBushCranberry.name">Tranbärbuske</entry>
+	<entry key="tile.blockBushBarberry.name">Berberisbuske</entry>
+	<entry key="tile.blockBushBearberry.name">Mjölonbuske</entry>
+	<entry key="tile.blockBushRedCurrant.name">Röda vinbärbuske</entry>
+	<entry key="tile.blockBushWhiteCurrant.name">Vita vinbärbuske</entry>
+	<entry key="tile.blockBushBlackCurrant.name">Svarta vinbärbuske</entry>
+	<entry key="tile.blockBushElderberry.name">Fläderbärbuske</entry>
+	<entry key="tile.blockBushGooseberry.name">Krusbärbuske</entry>
+	<entry key="tile.blockBushGrape.name">Druvsorter</entry>
+	<entry key="tile.blockBushCherry.name">Körsbärbuske</entry>
+	<entry key="tile.blockBushStrawberry.name">Jordgubbebuske</entry>
+	<entry key="tile.blockBushSoarynberry.name">Soarynbärbuske</entry>
+	
+	<entry key="item.berryRaspberry.name">Hallon</entry>
+	<entry key="item.berryBlueberry.name">Blåbär</entry>
+	<entry key="tile.berryCranberry.name">Tranbär</entry>
+	<entry key="tile.berryBarberry.name">Berberis</entry>
+	<entry key="tile.berryBearberry.name">Mjölon</entry>
+	<entry key="tile.berryRedCurrant.name">Röda vinbär</entry>
+	<entry key="tile.berryWhiteCurrant.name">Vita vinbär</entry>
+	<entry key="tile.berryBlackCurrant.name">Svarta vinbär</entry>
+	<entry key="tile.berryElderberry.name">Fläderbär</entry>
+	<entry key="tile.berryGooseberry.name">Krusbär</entry>
+	<entry key="tile.berryGrape.name">Druva</entry>
+	<entry key="tile.berryCherry.name">Körsbär</entry>
+	<entry key="tile.berryStrawberry.name">Jordgubbe</entry>
+	<entry key="item.berrySoarynberry.name">Soarynbär</entry>
+	
+	<entry key="item.fruitOrange.name">Apelsin</entry>
+	<entry key="item.fruitBanana.name">Banan</entry>
+	<entry key="item.fruitPomegranate.name">Granatäpple</entry>
+</properties>

@@ -19,47 +19,38 @@ import cpw.mods.fml.relauncher.SideOnly;
 /**
  * Ars Herbologica
  * 
- * ItemHerbologicaBerry
+ * ItemHerbologicaFruit
  * 
  * @author Myo-kun
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class ItemHerbologicaBerry extends ItemFood {
+public class ItemHerbologicaFruit extends ItemFood {
 	
 	@SideOnly(Side.CLIENT)
 	private static Icon[] icons;
 	
-	public ItemHerbologicaBerry(int id) {
-		super(id - Reference.ITEM_ID_CORRECTION, 2, 4.0F, true);
+	public ItemHerbologicaFruit(int id) {
+		super(id - Reference.ITEM_ID_CORRECTION, 4, 3.0F, true);
 		setCreativeTab(ArsHerbologica.herbologicaTab);
 		setHasSubtypes(true);
-		setAlwaysEdible();
 	}
-	
-	public ItemStack onItemRightClick (ItemStack stack, World world, EntityPlayer player) {
-        if (player.canEat(true) && player.getFoodStats().getSaturationLevel() < 18F) {
-            player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
-        }
-
-        return stack;
-    }
 	
 	@Override
     public int getMaxItemUseDuration (ItemStack stack) {
-        return 16;
+        return 32;
     }
 	
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-		return "item." + HerbologicaIDs.BERRY_UNLOCALIZED.get(stack.getItemDamage());
+		return "item." + HerbologicaIDs.FRUIT_UNLOCALIZED.get(stack.getItemDamage());
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister register) {
-		icons = new Icon[HerbologicaIDs.BERRY_UNLOCALIZED.size()];
-		for (int i = 0; i < HerbologicaIDs.BERRY_UNLOCALIZED.size(); i++) {
-			icons[i] = register.registerIcon(HerbologicaIDs.BERRY_MOD_ID.get(i) + ":" + HerbologicaIDs.BERRY_UNLOCALIZED.get(i));
+		icons = new Icon[HerbologicaIDs.FRUIT_UNLOCALIZED.size()];
+		for (int i = 0; i < HerbologicaIDs.FRUIT_UNLOCALIZED.size(); i++) {
+			icons[i] = register.registerIcon(HerbologicaIDs.FRUIT_MOD_ID.get(i) + ":" + HerbologicaIDs.FRUIT_UNLOCALIZED.get(i));
 		}
 	}
 	
@@ -71,7 +62,7 @@ public class ItemHerbologicaBerry extends ItemFood {
 	
 	@Override
 	public void getSubItems(int id, CreativeTabs tab, List list) {
-		for (int i = 0; i < HerbologicaIDs.BERRY_UNLOCALIZED.size(); i++) {
+		for (int i = 0; i < HerbologicaIDs.FRUIT_UNLOCALIZED.size(); i++) {
 			ItemStack stack = new ItemStack(id, 1, i);
 			list.add(stack);
 		}

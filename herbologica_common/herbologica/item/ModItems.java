@@ -13,9 +13,13 @@ import net.minecraft.item.Item;
  */
 public class ModItems {
 	public static Item herbologicaBerry;
+	public static Item herbologicaFruit;
+	public static Item herbologicaPlant;
 	
 	public static void addItems() {
-		herbologicaBerry = new ItemHerbologicaBerry(HerbologicaIDs.BERRY, 3, 3.0F);
+		herbologicaBerry = new ItemHerbologicaBerry(HerbologicaIDs.BERRY);
+		herbologicaFruit = new ItemHerbologicaFruit(HerbologicaIDs.FRUIT);
+		herbologicaPlant = new ItemHerbologicaPlant(HerbologicaIDs.PLANT);
 	}
 
 }

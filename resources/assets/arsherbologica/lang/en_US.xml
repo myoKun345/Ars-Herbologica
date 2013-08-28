@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties version="1.0">
+	<comment>English (en_US) Localization File</comment>
+	<entry key="itemGroup.ArsHerbologica">Ars Herbologica</entry>
+	
+	<entry key="tile.blockBushRaspberry.name">Raspberry Bush</entry>
+	<entry key="tile.blockBushBlueberry.name">Blueberry Bush</entry>
+	<entry key="tile.blockBushCranberry.name">Cranberry Bush</entry>
+	<entry key="tile.blockBushBarberry.name">Barberry Bush</entry>
+	<entry key="tile.blockBushBearberry.name">Bearberry Bush</entry>
+	<entry key="tile.blockBushRedCurrant.name">Red Currant Bush</entry>
+	<entry key="tile.blockBushWhiteCurrant.name">White Currant Bush</entry>
+	<entry key="tile.blockBushBlackCurrant.name">Black Currant Bush</entry>
+	<entry key="tile.blockBushElderberry.name">Elderberry Bush</entry>
+	<entry key="tile.blockBushGooseberry.name">Gooseberry Bush</entry>
+	<entry key="tile.blockBushGrape.name">Grape Vine</entry>
+	<entry key="tile.blockBushCherry.name">Cherry Bush</entry>
+	<entry key="tile.blockBushStrawberry.name">Strawberry Bush</entry>
+	<entry key="tile.blockBushSoarynberry.name">Soarynberry Bush</entry>
+	
+	<entry key="item.berryRaspberry.name">Raspberry</entry>
+	<entry key="item.berryBlueberry.name">Blueberry</entry>
+	<entry key="item.berryCranberry.name">Cranberry</entry>
+	<entry key="item.berryBarberry.name">Barberry</entry>
+	<entry key="item.berryBearberry.name">Bearberry</entry>
+	<entry key="item.berryRedCurrant.name">Red Currant</entry>
+	<entry key="item.berryWhiteCurrant.name">White Currant</entry>
+	<entry key="item.berryBlackCurrant.name">Black Currant</entry>
+	<entry key="item.berryElderberry.name">Elderberry</entry>
+	<entry key="item.berryGooseberry.name">Gooseberry</entry>
+	<entry key="item.berryGrape.name">Grape</entry>
+	<entry key="item.berryCherry.name">Cherry</entry>
+	<entry key="item.berryStrawberry.name">Strawberry</entry>
+	<entry key="item.berrySoarynberry.name">Soarynberry</entry>
+	
+	<entry key="item.fruitOrange.name">Orange</entry>
+	<entry key="item.fruitBanana.name">Banana</entry>
+	<entry key="item.fruitPomegranate.name">Pomegranate</entry>
+</properties>

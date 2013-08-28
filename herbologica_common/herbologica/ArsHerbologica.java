@@ -1,15 +1,17 @@
 package herbologica;
 
-import java.io.File;
-
-import herbologica.api.BerryHandler;
+import herbologica.api.HerbologicaAPI;
 import herbologica.block.ModBlocks;
 import herbologica.config.ConfigurationHandler;
 import herbologica.core.HerbologicaCreativeTab;
+import herbologica.core.LocalizationHandler;
 import herbologica.item.ModItems;
 import herbologica.lib.Reference;
 import herbologica.network.PacketHandler;
 import herbologica.proxy.CommonProxy;
+
+import java.io.File;
+
 import net.minecraft.creativetab.CreativeTabs;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -42,9 +44,33 @@ public class ArsHerbologica {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		
-		BerryHandler.addBerry("Raspberry", 2, 4.0F, Reference.MOD_ID);
-		BerryHandler.addBerry("Blueberry", 2, 4.5F, Reference.MOD_ID);
-		BerryHandler.addBerry("Soarynberry", 3, 4.0F, Reference.MOD_ID);
+		HerbologicaAPI.addBerry("Raspberry", Reference.MOD_ID);
+		HerbologicaAPI.addBerry("Blueberry", Reference.MOD_ID);
+		HerbologicaAPI.addBerry("Cranberry", Reference.MOD_ID);
+		HerbologicaAPI.addBerry("Barberry", Reference.MOD_ID);
+		HerbologicaAPI.addBerry("Bearberry", Reference.MOD_ID);
+		HerbologicaAPI.addBerry("RedCurrant", Reference.MOD_ID);
+		HerbologicaAPI.addBerry("WhiteCurrant", Reference.MOD_ID);
+		HerbologicaAPI.addBerry("BlackCurrant", Reference.MOD_ID);
+		HerbologicaAPI.addBerry("Elderberry", Reference.MOD_ID);
+		HerbologicaAPI.addBerry("Gooseberry", Reference.MOD_ID);
+		HerbologicaAPI.addBerry("Grape", Reference.MOD_ID);
+		HerbologicaAPI.addBerry("Cherry", Reference.MOD_ID);
+		HerbologicaAPI.addBerry("Strawberry", Reference.MOD_ID);
+		HerbologicaAPI.addBerry("Soarynberry", Reference.MOD_ID);
+		
+		HerbologicaAPI.addFruit("Orange", Reference.MOD_ID);
+		HerbologicaAPI.addFruit("Banana", Reference.MOD_ID);
+		HerbologicaAPI.addFruit("Pomegranate", Reference.MOD_ID);
+		HerbologicaAPI.addFruit("Pear", Reference.MOD_ID);
+		HerbologicaAPI.addFruit("Lemon", Reference.MOD_ID);
+		HerbologicaAPI.addFruit("Lime", Reference.MOD_ID);
+		
+		HerbologicaAPI.addPlant("Coffee", Reference.MOD_ID);
+		HerbologicaAPI.addPlant("Barley", Reference.MOD_ID);
+		HerbologicaAPI.addPlant("Rubber", Reference.MOD_ID);
+		
+		LocalizationHandler.loadLanguages();
 		
 		ConfigurationHandler.initMain(new File(event.getModConfigurationDirectory().getAbsolutePath() + File.separator + Reference.MOD_ID + File.separator + Reference.MOD_ID + ".cfg"));
 		
