@@ -4,13 +4,15 @@ import herbologica.ArsHerbologica;
 import herbologica.lib.HerbologicaIDs;
 import herbologica.lib.Reference;
 
-import java.awt.List;
+import java.util.List;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
+import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -31,7 +33,21 @@ public class ItemHerbologicaBerry extends ItemFood {
 		super(id - Reference.ITEM_ID_CORRECTION, hunger, saturation, true);
 		setCreativeTab(ArsHerbologica.herbologicaTab);
 		setHasSubtypes(true);
+		setAlwaysEdible();
 	}
+	
+	public ItemStack onItemRightClick (ItemStack stack, World world, EntityPlayer player) {
+        if (player.canEat(true) && player.getFoodStats().getSaturationLevel() < 18F) {
+            player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
+        }
+
+        return stack;
+    }
+	
+	@Override
+    public int getMaxItemUseDuration (ItemStack stack) {
+        return 16;
+    }
 	
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
@@ -43,7 +59,7 @@ public class ItemHerbologicaBerry extends ItemFood {
 	public void registerIcons(IconRegister register) {
 		icons = new Icon[HerbologicaIDs.BERRY_UNLOCALIZED.size()];
 		for (int i = 0; i < HerbologicaIDs.BERRY_UNLOCALIZED.size(); i++) {
-			icons[i] = register.registerIcon(Reference.MOD_ID + ":" + HerbologicaIDs.BERRY_UNLOCALIZED.get(i));
+			icons[i] = register.registerIcon(HerbologicaIDs.BERRY_MOD_ID.get(i) + ":" + HerbologicaIDs.BERRY_UNLOCALIZED.get(i));
 		}
 	}
 	
@@ -52,8 +68,7 @@ public class ItemHerbologicaBerry extends ItemFood {
 	public Icon getIconFromDamage(int dmg) {
 		return icons[dmg];
 	}
-
-	@SideOnly(Side.CLIENT)
+	
 	@Override
 	public void getSubItems(int id, CreativeTabs tab, List list) {
 		for (int i = 0; i < HerbologicaIDs.BERRY_UNLOCALIZED.size(); i++) {

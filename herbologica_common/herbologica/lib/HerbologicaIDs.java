@@ -42,4 +42,9 @@ public class HerbologicaIDs {
 		
 		/* Unlocalized Names */
 		public static final LinkedList<String> BERRY_UNLOCALIZED = new LinkedList<String>();
+		
+	/* Berry Utility Lists */
+	public static final LinkedList<Integer> BERRY_HUNGER_VALUE = new LinkedList<Integer>();
+	public static final LinkedList<Float> BERRY_SATURATION_VALUE = new LinkedList<Float>();
+	public static final LinkedList<String> BERRY_MOD_ID = new LinkedList<String>();
 }

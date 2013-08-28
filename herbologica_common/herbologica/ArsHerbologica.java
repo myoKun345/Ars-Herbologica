@@ -3,6 +3,7 @@ package herbologica;
 import java.io.File;
 
 import herbologica.api.BerryHandler;
+import herbologica.block.ModBlocks;
 import herbologica.config.ConfigurationHandler;
 import herbologica.core.HerbologicaCreativeTab;
 import herbologica.item.ModItems;
@@ -43,10 +44,13 @@ public class ArsHerbologica {
 		
 		BerryHandler.addBerry("Raspberry", 2, 4.0F, Reference.MOD_ID);
 		BerryHandler.addBerry("Blueberry", 2, 4.5F, Reference.MOD_ID);
+		BerryHandler.addBerry("Soarynberry", 3, 4.0F, Reference.MOD_ID);
 		
 		ConfigurationHandler.initMain(new File(event.getModConfigurationDirectory().getAbsolutePath() + File.separator + Reference.MOD_ID + File.separator + Reference.MOD_ID + ".cfg"));
 		
 		ModItems.addItems();
+		
+		ModBlocks.addBlocks();
 		
 	}
 	
