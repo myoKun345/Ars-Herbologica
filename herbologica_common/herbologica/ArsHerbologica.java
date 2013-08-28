@@ -57,6 +57,7 @@ public class ArsHerbologica {
 		HerbologicaAPI.addBerry("Grape", Reference.MOD_ID);
 		HerbologicaAPI.addBerry("Cherry", Reference.MOD_ID);
 		HerbologicaAPI.addBerry("Strawberry", Reference.MOD_ID);
+		HerbologicaAPI.addBerry("Lychee", Reference.MOD_ID);
 		HerbologicaAPI.addBerry("Soarynberry", Reference.MOD_ID);
 		
 		HerbologicaAPI.addFruit("Orange", Reference.MOD_ID);
@@ -65,10 +66,32 @@ public class ArsHerbologica {
 		HerbologicaAPI.addFruit("Pear", Reference.MOD_ID);
 		HerbologicaAPI.addFruit("Lemon", Reference.MOD_ID);
 		HerbologicaAPI.addFruit("Lime", Reference.MOD_ID);
+		HerbologicaAPI.addFruit("Plum", Reference.MOD_ID);
+		HerbologicaAPI.addFruit("Mango", Reference.MOD_ID);
+		HerbologicaAPI.addFruit("Apricot", Reference.MOD_ID);
+		HerbologicaAPI.addFruit("Peach", Reference.MOD_ID);
+		HerbologicaAPI.addFruit("Guava", Reference.MOD_ID);
+		HerbologicaAPI.addFruit("Dragonfruit", Reference.MOD_ID);
+		HerbologicaAPI.addFruit("Fig", Reference.MOD_ID);
+		HerbologicaAPI.addFruit("Grapefruit", Reference.MOD_ID);
+		HerbologicaAPI.addFruit("Kiwi", Reference.MOD_ID);
+		HerbologicaAPI.addFruit("Kumquat", Reference.MOD_ID);
+		HerbologicaAPI.addFruit("Loquat", Reference.MOD_ID);
+		HerbologicaAPI.addFruit("Papaya", Reference.MOD_ID);
+		HerbologicaAPI.addFruit("Passionfruit", Reference.MOD_ID);
+		HerbologicaAPI.addFruit("Pineapple", Reference.MOD_ID);
+		HerbologicaAPI.addFruit("Quince", Reference.MOD_ID);
+		HerbologicaAPI.addFruit("Rhubarb", Reference.MOD_ID);
+		HerbologicaAPI.addFruit("Starfruit", Reference.MOD_ID);
+		HerbologicaAPI.addFruit("Tamarind", Reference.MOD_ID);
+		HerbologicaAPI.addFruit("Tangerine", Reference.MOD_ID);
+		HerbologicaAPI.addFruit("Durian", Reference.MOD_ID);
 		
 		HerbologicaAPI.addPlant("Coffee", Reference.MOD_ID);
 		HerbologicaAPI.addPlant("Barley", Reference.MOD_ID);
 		HerbologicaAPI.addPlant("Rubber", Reference.MOD_ID);
+		HerbologicaAPI.addPlant("Canola", Reference.MOD_ID);
+		HerbologicaAPI.addPlant("Vanilla", Reference.MOD_ID);
 		
 		LocalizationHandler.loadLanguages();
 		

@@ -17,6 +17,7 @@
 	<entry key="tile.blockBushGrape.name">Grape Vine</entry>
 	<entry key="tile.blockBushCherry.name">Cherry Bush</entry>
 	<entry key="tile.blockBushStrawberry.name">Strawberry Bush</entry>
+	<entry key="tile.blockBushLychee.name">Lychee Bush</entry>
 	<entry key="tile.blockBushSoarynberry.name">Soarynberry Bush</entry>
 	
 	<entry key="item.berryRaspberry.name">Raspberry</entry>
@@ -32,9 +33,39 @@
 	<entry key="item.berryGrape.name">Grape</entry>
 	<entry key="item.berryCherry.name">Cherry</entry>
 	<entry key="item.berryStrawberry.name">Strawberry</entry>
+	<entry key="item.berryLychee.name">Lychee</entry>
 	<entry key="item.berrySoarynberry.name">Soarynberry</entry>
 	
 	<entry key="item.fruitOrange.name">Orange</entry>
 	<entry key="item.fruitBanana.name">Banana</entry>
 	<entry key="item.fruitPomegranate.name">Pomegranate</entry>
+	<entry key="item.fruitPear.name">Pear</entry>
+	<entry key="item.fruitLemon.name">Lemon</entry>
+	<entry key="item.fruitLime.name">Lime</entry>
+	<entry key="item.fruitPlum.name">Plum</entry>
+	<entry key="item.fruitMango.name">Mango</entry>
+	<entry key="item.fruitApricot.name">Apricot</entry>
+	<entry key="item.fruitPeach.name">Peach</entry>
+	<entry key="item.fruitGuava.name">Guava</entry>
+	<entry key="item.fruitDragonfruit.name">Dragonfruit</entry>
+	<entry key="item.fruitFig.name">Fig</entry>
+	<entry key="item.fruitGrapefruit.name">Grapefruit</entry>
+	<entry key="item.fruitKiwi.name">Kiwi</entry>
+	<entry key="item.fruitKumquat.name">Kumquat</entry>
+	<entry key="item.fruitLoquat.name">Loquat</entry>
+	<entry key="item.fruitPapaya.name">Papaya</entry>
+	<entry key="item.fruitPassionfruit.name">Passionfruit</entry>
+	<entry key="item.fruitPineapple.name">Pineapple</entry>
+	<entry key="item.fruitQuince.name">Quince</entry>
+	<entry key="item.fruitRhubarb.name">Rhubarb</entry>
+	<entry key="item.fruitStarfruit.name">Starfruit</entry>
+	<entry key="item.fruitTamarind.name">Tamarind</entry>
+	<entry key="item.fruitTangerine.name">Tangerine</entry>
+	<entry key="item.fruitDurian.name">Durian</entry>
+	
+	<entry key="item.plantCoffee.name">Coffee Beans</entry>
+	<entry key="item.plantBarley.name">Barley</entry>
+	<entry key="item.plantRubber.name">Rubber Plant</entry>
+	<entry key="item.plantCanola.name">Canola</entry>
+	<entry key="item.plantVanilla.name">Vanilla Beans</entry>
 </properties>

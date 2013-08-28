@@ -17,21 +17,23 @@
 	<entry key="tile.blockBushGrape.name">Turu Waine</entry>
 	<entry key="tile.blockBushCherry.name">Kiboku Ti'eru</entry>
 	<entry key="tile.blockBushStrawberry.name">Kiboku Kanao Ropẽ</entry>
+	<entry key="tile.blockBushLychee.name">Kiboku Riti'i</entry>
 	<entry key="tile.blockBushSoarynberry.name">Kiboku Kanao Sorĩ</entry>
 	
 	<entry key="item.berryRaspberry.name">Kanao Rahi</entry>
 	<entry key="item.berryBlueberry.name">Kanao Kuragi</entry>
 	<entry key="item.berryCranberry.name">Kanao Korã</entry>
-	<entry key="tile.berryBarberry.name">Kanao Megi</entry>
-	<entry key="tile.berryBearberry.name">Kanao Koma</entry>
-	<entry key="tile.berryRedCurrant.name">Kara Rahi</entry>
-	<entry key="tile.berryWhiteCurrant.name">Kara Bane</entry>
-	<entry key="tile.berryBlackCurrant.name">Kara Magũ</entry>
-	<entry key="tile.berryElderberry.name">Kanao Ni'a</entry>
-	<entry key="tile.berryGooseberry.name">Kanao Kato'o</entry>
-	<entry key="tile.berryGrape.name">Waine</entry>
-	<entry key="tile.berryCherry.name">Ti'eru</entry>
-	<entry key="tile.berryStrawberry.name">Kanao Ropẽ</entry>
+	<entry key="item.berryBarberry.name">Kanao Megi</entry>
+	<entry key="item.berryBearberry.name">Kanao Koma</entry>
+	<entry key="item.berryRedCurrant.name">Kara Rahi</entry>
+	<entry key="item.berryWhiteCurrant.name">Kara Bane</entry>
+	<entry key="item.berryBlackCurrant.name">Kara Magũ</entry>
+	<entry key="item.berryElderberry.name">Kanao Ni'a</entry>
+	<entry key="item.berryGooseberry.name">Kanao Kato'o</entry>
+	<entry key="item.berryGrape.name">Waine</entry>
+	<entry key="item.berryCherry.name">Ti'eru</entry>
+	<entry key="item.berryStrawberry.name">Kanao Ropẽ</entry>
+	<entry key="item.berryLychee.name">Riti'i</entry>
 	<entry key="item.berrySoarynberry.name">Kanao Sorĩ</entry>
 	
 	<entry key="item.fruitOrange.name">Mika</entry>
