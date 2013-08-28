@@ -1,0 +1,20 @@
+[
+{
+  "modid": "ArsHerbologica",
+  "name": "Ars Herbologica",
+  "description": "A botany/herbology/horticulture/plant stuff mod!",
+  "version": "0.0.01.@@BUILD@@",
+  "url": "www.github.com/myoKun345/ArsHerbologica/",
+  "updateUrl": "",
+  "authorList": [
+    "Myo-kun"
+  ],
+  "credits": "By Myo-kun",
+  "logoFile": "",
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
+}
+]
