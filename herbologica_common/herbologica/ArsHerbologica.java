@@ -9,6 +9,7 @@ import herbologica.item.ModItems;
 import herbologica.lib.Reference;
 import herbologica.network.PacketHandler;
 import herbologica.proxy.CommonProxy;
+import herbologica.tileentity.ModTileEntities;
 
 import java.io.File;
 
@@ -96,6 +97,8 @@ public class ArsHerbologica {
 		LocalizationHandler.loadLanguages();
 		
 		ConfigurationHandler.initMain(new File(event.getModConfigurationDirectory().getAbsolutePath() + File.separator + Reference.MOD_ID + File.separator + Reference.MOD_ID + ".cfg"));
+		
+		ModTileEntities.addTileEntities();
 		
 		ModItems.addItems();
 		

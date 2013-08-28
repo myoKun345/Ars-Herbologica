@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<project name="Ars Herbologica" default="build">
+
+	<target name="build">
+		<delete dir="../Forge/forge/mcp/src/minecraft/herbologica" />
+		<mkdir dir="../Forge/forge/mcp/src/minecraft/herbologica" />
+		
+		<delete dir="../../jobs/Ars Herbologica/toJar" />
+		<mkdir dir="../../jobs/Ars Herbologica/toJar" />
+		
+		<delete dir="../../jobs/Ars Herbologica/toDeobf" />
+		<mkdir dir="../../jobs/Ars Herbologica/toDeobf" />
+		
+		<delete dir="jars" />
+		<mkdir dir="jars" />
+		
+		<delete dir="deobf" />
+		<mkdir dir="deobf" />
+		
+		<replace file="herbologica_common/mcmod.info" token="@@BUILD@@" value="${build_number}" />
+		<replace file="herbologica_common/herbologica/lib/Reference.java" token="@@BUILD@@" value="${build_number}" />
+		
+		<copy todir="../Forge/forge/mcp/src/minecraft">
+			
+			<fileset dir="herbologica_common/" />
+			
+		</copy>
+		
+		<copy todir="../../jobs/Ars Herbologica/toJar" file="herbologica_common/mcmod.info" />
+		
+		<copy todir="../../jobs/Ars Herbologica/toJar">
+			
+			<fileset dir="resources/" />
+			
+		</copy>
+		
+		<copy todir="../../jobs/Ars Herbologica/toDeobf" file="herbologica_common/mcmod.info" />
+		
+		<copy todir="../../jobs/Ars Herbologica/toDeobf">
+			
+			<fileset dir="resources/" />
+			
+		</copy>
+
+		<exec executable="../Forge/forge/mcp/recompile.sh" dir="../Forge/forge/mcp" resolveexecutable="true" osfamily="unix"></exec>
+
+		<exec executable="../Forge/forge/mcp/reobfuscate_srg.sh" dir="../Forge/forge/mcp" resolveexecutable="true" osfamily="unix"></exec>
+
+		<copy todir="../../jobs/Ars Herbologica/toJar/herbologica">
+
+			<fileset dir="../Forge/forge/mcp/reobf/minecraft/herbologica" />
+
+		</copy>
+		
+		<copy todir="../../jobs/Ars Herbologica/toDeobf/herbologica">
+
+			<fileset dir="../Forge/forge/mcp/bin/minecraft/herbologica" />
+
+		</copy>
+		
+		<jar destfile="jars/ArsHerbologica-0.0.01.${build_number}.jar" basedir="../../jobs/Ars Herbologica/toJar" />
+		<jar destfile="deobf/ArsHerbologica-deobf-0.0.01.${build_number}.jar" basedir="../../jobs/Ars Herbologica/toDeobf" />
+
+	</target>
+
+</project>

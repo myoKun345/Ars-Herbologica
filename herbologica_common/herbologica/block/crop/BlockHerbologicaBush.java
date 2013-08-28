@@ -3,16 +3,22 @@ package herbologica.block.crop;
 import herbologica.ArsHerbologica;
 import herbologica.lib.HerbologicaIDs;
 import herbologica.lib.Reference;
+import herbologica.tileentity.crop.TileEntityBush;
 
 import java.util.List;
+import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeavesBase;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
@@ -27,15 +33,20 @@ import cpw.mods.fml.relauncher.SideOnly;
  * @author Myo-kun
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class BlockHerbologicaBush extends BlockLeavesBase implements IPlantable {
+public class BlockHerbologicaBush extends BlockLeavesBase implements IPlantable,ITileEntityProvider {
 	
 	@SideOnly(Side.CLIENT)
     private Icon[] icons;
+	private Random random;
+	
+	public TileEntityBush tileentity;
 	
 	public BlockHerbologicaBush(int id) {
 		super(id, Material.leaves, false);
 		setCreativeTab(ArsHerbologica.herbologicaTab);
 		setStepSound(Block.soundGrassFootstep);
+		setTickRandomly(true);
+		random = new Random();
 	}
 	
 	@Override
@@ -62,8 +73,48 @@ public class BlockHerbologicaBush extends BlockLeavesBase implements IPlantable 
     }
     
     @Override
+    public void setBlockBoundsBasedOnState (IBlockAccess block, int x, int y, int z) {
+    	
+        float minX;
+        float minY = 0F;
+        float minZ;
+        float maxX;
+        float maxY;
+        float maxZ;
+        
+        if (this.tileentity.growthStage < 4) {
+            minX = minZ = 0.25F;
+            maxX = maxZ = 0.75F;
+            maxY = 0.5F;
+        }
+        else 
+        if (this.tileentity.growthStage < 8) {
+            minX = minZ = 0.125F;
+            maxX = maxZ = 0.875F;
+            maxY = 0.75F;
+        }
+        else {
+            minX = minZ = 0.0F;
+            maxX = maxZ = 1.0F;
+            maxY = 1.0F;
+        }
+        setBlockBounds(minX, minY, minZ, maxX, maxY, maxZ);
+        
+    }
+    
+    @Override
     public int damageDropped(int meta) {
         return meta;
+    }
+    
+    @Override
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int i, float j, float k, float l) {
+    	
+    	if (this.tileentity.growthStage < 15) {
+    		this.tileentity.growthStage++;
+    		return true;
+    	}
+    	return false;
     }
 	
 	@Override
@@ -79,6 +130,21 @@ public class BlockHerbologicaBush extends BlockLeavesBase implements IPlantable 
 	@Override
 	public int getPlantMetadata(World world, int x, int y, int z) {
 		return world.getBlockMetadata(x, y, z);
+	}
+	
+	@Override
+	public TileEntity createNewTileEntity(World world) {
+		this.tileentity = new TileEntityBush();
+		return this.tileentity;
+	}
+	
+	@Override
+	public boolean isOpaqueCube() {
+		return false;
+	}
+	
+	public void setGraphicsLevel(boolean flag) {
+		graphicsLevel = flag;
 	}
 
 }
