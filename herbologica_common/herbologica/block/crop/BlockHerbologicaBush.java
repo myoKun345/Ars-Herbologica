@@ -3,6 +3,7 @@ package herbologica.block.crop;
 import herbologica.ArsHerbologica;
 import herbologica.lib.HerbologicaIDs;
 import herbologica.lib.Reference;
+import herbologica.render.BushRender;
 import herbologica.tileentity.crop.TileEntityBush;
 
 import java.util.List;
@@ -17,6 +18,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -36,7 +38,9 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class BlockHerbologicaBush extends BlockLeavesBase implements IPlantable,ITileEntityProvider {
 	
 	@SideOnly(Side.CLIENT)
-    private Icon[] icons;
+    private Icon[] fastIcons;
+	@SideOnly(Side.CLIENT)
+	private Icon[] fancyIcons;
 	private Random random;
 	
 	public BlockHerbologicaBush(int id) {
@@ -44,22 +48,30 @@ public class BlockHerbologicaBush extends BlockLeavesBase implements IPlantable,
 		setCreativeTab(ArsHerbologica.herbologicaTab);
 		setStepSound(Block.soundGrassFootstep);
 		setTickRandomly(true);
+		setHardness(0.3F);
 		random = new Random();
 	}
 	
 	@Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister register) {
-        icons = new Icon[HerbologicaIDs.BUSH_BLOCK_UNLOCALIZED.size()];
-        for (int i = 0; i < icons.length; i++) {
-            icons[i] = register.registerIcon(Reference.MOD_ID + ":" + HerbologicaIDs.BUSH_BLOCK_UNLOCALIZED.get(i));
+        fastIcons = new Icon[HerbologicaIDs.BUSH_BLOCK_UNLOCALIZED.size()];
+        fancyIcons = new Icon[HerbologicaIDs.BUSH_BLOCK_UNLOCALIZED.size()];
+        for (int i = 0; i < fastIcons.length; i++) {
+            fastIcons[i] = register.registerIcon(Reference.MOD_ID + ":" + HerbologicaIDs.BUSH_BLOCK_UNLOCALIZED.get(i) + "_fast");
+            fancyIcons[i] = register.registerIcon(Reference.MOD_ID + ":" + HerbologicaIDs.BUSH_BLOCK_UNLOCALIZED.get(i) + "_fancy");
         }
     }
     
-    @Override
+	@Override
     @SideOnly(Side.CLIENT)
-    public Icon getIcon(int side, int meta) {
-        return icons[meta];
+    public Icon getIcon(int side, int metadata) {
+        if (graphicsLevel) {
+            return fancyIcons[metadata];
+        }
+        else {
+            return fastIcons[metadata];
+        }
     }
     
     @Override
@@ -67,6 +79,44 @@ public class BlockHerbologicaBush extends BlockLeavesBase implements IPlantable,
     public void getSubBlocks(int id, CreativeTabs tab, List list) {
         for (int i = 0; i < HerbologicaIDs.BUSH_BLOCK_UNLOCALIZED.size(); i++) {
             list.add(new ItemStack(id, 1, i));
+        }
+    }
+    
+    @Override
+    public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
+    	
+        TileEntityBush tileentity = (TileEntityBush)world.getBlockTileEntity(x, y, z);
+        
+        if (tileentity == null) {
+        	return AxisAlignedBB.getBoundingBox((double) x + 0.25D, y, (double) z + 0.25D, (double) x + 0.75D, (double) y + 0.5D, (double) z + 0.75D);
+        }
+        if (tileentity.growthStage < 4) {
+            return AxisAlignedBB.getBoundingBox((double) x + 0.25D, y, (double) z + 0.25D, (double) x + 0.75D, (double) y + 0.5D, (double) z + 0.75D);
+        }
+        else if (tileentity.growthStage < 8) {
+            return AxisAlignedBB.getBoundingBox((double) x + 0.125D, y, (double) z + 0.125D, (double) x + 0.875D, (double) y + 0.75D, (double) z + 0.875D);
+        }
+        else {
+            return AxisAlignedBB.getBoundingBox(x, y, z, (double) x + 1.0D, (double) y + 1.0D, (double) z + 1.0D);
+        }
+    }
+    
+    @Override
+    public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z) {
+    	
+        TileEntityBush tileentity = (TileEntityBush)world.getBlockTileEntity(x, y, z);
+        
+        if (tileentity == null) {
+        	return AxisAlignedBB.getBoundingBox((double) x + 0.25D, y, (double) z + 0.25D, (double) x + 0.75D, (double) y + 0.5D, (double) z + 0.75D);
+        }
+        if (tileentity.growthStage < 4) {
+            return AxisAlignedBB.getBoundingBox((double) x + 0.25D, y, (double) z + 0.25D, (double) x + 0.75D, (double) y + 0.5D, (double) z + 0.75D);
+        }
+        else if (tileentity.growthStage < 8) {
+            return AxisAlignedBB.getBoundingBox((double) x + 0.125D, y, (double) z + 0.125D, (double) x + 0.875D, (double) y + 0.75D, (double) z + 0.875D);
+        }
+        else {
+            return AxisAlignedBB.getBoundingBox(x, y, z, (double) x + 1.0D, (double) y + 1.0D, (double) z + 1.0D);
         }
     }
     
@@ -147,5 +197,27 @@ public class BlockHerbologicaBush extends BlockLeavesBase implements IPlantable,
 	public void setGraphicsLevel(boolean flag) {
 		graphicsLevel = flag;
 	}
+	
+	@Override
+    public boolean renderAsNormalBlock() {
+        return false;
+    }
+
+	@Override
+    public int getRenderType() {
+        return BushRender.bushModel;
+    }
+    
+	@Override
+    public boolean shouldSideBeRendered(IBlockAccess block, int i, int j, int k, int l) {
+        if (l > 7 || graphicsLevel)
+        {
+            return super.shouldSideBeRendered(block, i, j, k, l);
+        }
+        else
+        {
+            return true;
+        }
+    }
 
 }

@@ -1,10 +1,11 @@
 package herbologica.block;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import herbologica.block.crop.BlockHerbologicaBush;
+import herbologica.block.fluid.BlockFluidCoffee;
 import herbologica.block.util.ItemBlockHerbologicaBush;
 import herbologica.lib.HerbologicaIDs;
 import net.minecraft.block.Block;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 /**
  * Ars Herbologica
@@ -16,10 +17,13 @@ import net.minecraft.block.Block;
  */
 public class ModBlocks {
 	public static Block herbologicaBush;
+	public static Block coffeeFluidBlock;
 	
 	public static void addBlocks() {
 		herbologicaBush = new BlockHerbologicaBush(HerbologicaIDs.BUSH_BLOCK);
+		coffeeFluidBlock = new BlockFluidCoffee(HerbologicaIDs.COFFEE_BLOCK);
 		
 		GameRegistry.registerBlock(herbologicaBush, ItemBlockHerbologicaBush.class, "blockBushHerbologica");
+		GameRegistry.registerBlock(coffeeFluidBlock, "blockCoffeeFluid");
 	}
 }

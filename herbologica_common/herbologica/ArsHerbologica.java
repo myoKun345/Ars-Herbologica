@@ -5,6 +5,7 @@ import herbologica.block.ModBlocks;
 import herbologica.config.ConfigurationHandler;
 import herbologica.core.HerbologicaCreativeTab;
 import herbologica.core.LocalizationHandler;
+import herbologica.fluid.ModFluids;
 import herbologica.item.ModItems;
 import herbologica.lib.Reference;
 import herbologica.network.PacketHandler;
@@ -99,6 +100,8 @@ public class ArsHerbologica {
 		ConfigurationHandler.initMain(new File(event.getModConfigurationDirectory().getAbsolutePath() + File.separator + Reference.MOD_ID + File.separator + Reference.MOD_ID + ".cfg"));
 		
 		ModTileEntities.addTileEntities();
+		
+		ModFluids.addFluids();
 		
 		ModItems.addItems();
 		
