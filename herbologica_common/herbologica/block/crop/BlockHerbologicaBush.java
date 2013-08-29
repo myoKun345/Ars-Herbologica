@@ -39,8 +39,6 @@ public class BlockHerbologicaBush extends BlockLeavesBase implements IPlantable,
     private Icon[] icons;
 	private Random random;
 	
-	public TileEntityBush tileentity;
-	
 	public BlockHerbologicaBush(int id) {
 		super(id, Material.leaves, false);
 		setCreativeTab(ArsHerbologica.herbologicaTab);
@@ -73,7 +71,9 @@ public class BlockHerbologicaBush extends BlockLeavesBase implements IPlantable,
     }
     
     @Override
-    public void setBlockBoundsBasedOnState (IBlockAccess block, int x, int y, int z) {
+    public void setBlockBoundsBasedOnState(IBlockAccess block, int x, int y, int z) {
+    	
+    	TileEntityBush tileentity = (TileEntityBush)block.getBlockTileEntity(x, y, z);
     	
         float minX;
         float minY = 0F;
@@ -82,13 +82,13 @@ public class BlockHerbologicaBush extends BlockLeavesBase implements IPlantable,
         float maxY;
         float maxZ;
         
-        if (this.tileentity.growthStage < 4) {
+        if (tileentity.growthStage < 4) {
             minX = minZ = 0.25F;
             maxX = maxZ = 0.75F;
             maxY = 0.5F;
         }
         else 
-        if (this.tileentity.growthStage < 8) {
+        if (tileentity.growthStage < 8) {
             minX = minZ = 0.125F;
             maxX = maxZ = 0.875F;
             maxY = 0.75F;
@@ -110,8 +110,10 @@ public class BlockHerbologicaBush extends BlockLeavesBase implements IPlantable,
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int i, float j, float k, float l) {
     	
-    	if (this.tileentity.growthStage < 15) {
-    		this.tileentity.growthStage++;
+    	TileEntityBush tileentity = (TileEntityBush)world.getBlockTileEntity(x, y, z);
+    	
+    	if (tileentity.growthStage < 15) {
+    		tileentity.growthStage++;
     		return true;
     	}
     	return false;
@@ -134,8 +136,7 @@ public class BlockHerbologicaBush extends BlockLeavesBase implements IPlantable,
 	
 	@Override
 	public TileEntity createNewTileEntity(World world) {
-		this.tileentity = new TileEntityBush();
-		return this.tileentity;
+		return new TileEntityBush();
 	}
 	
 	@Override
