@@ -21,18 +21,22 @@ public class HerbologicaIDs {
 		/* Default IDs */
 		public static final int BUSH_BLOCK_DEFAULT = 3400;
 		public static final int COFFEE_BLOCK_DEFAULT = 3450;
+		public static final int TEA_BLOCK_DEFAULT = 3451;
 		
 		/* Current IDs */
 		public static int BUSH_BLOCK;
 		public static int COFFEE_BLOCK;
+		public static int TEA_BLOCK;
 		
 		/* Config Keys */
 		public static final String BUSH_BLOCK_KEY = "BushID";
 		public static final String COFFEE_BLOCK_KEY = "CoffeeID";
+		public static final String TEA_BLOCK_KEY = "TeaID";
 		
 		/* Unlocalized Names */
 		public static final LinkedList<String> BUSH_BLOCK_UNLOCALIZED = new LinkedList<String>();
 		public static final String COFFEE_BLOCK_UNLOCALIZED = "blockFluidCoffee";
+		public static final String TEA_BLOCK_UNLOCALIZED = "blockFluidTea";
 		
 	/* Item */
 		/* Config Category */
@@ -69,4 +73,6 @@ public class HerbologicaIDs {
 	public static final LinkedList<String> MUG_MOD_ID = new LinkedList<String>();
 	public static final LinkedList<Fluid> MUG_FLUID = new LinkedList<Fluid>();
 	public static final LinkedList<Potion> MUG_EFFECT = new LinkedList<Potion>();
+	public static final LinkedList<Integer> MUG_EFFECT_DURATION = new LinkedList<Integer>();
+	public static final LinkedList<Integer> MUG_EFFECT_MULTIPLIER = new LinkedList<Integer>();
 }

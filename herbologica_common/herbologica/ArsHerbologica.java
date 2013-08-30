@@ -49,7 +49,6 @@ public class ArsHerbologica {
 	public void preInit(FMLPreInitializationEvent event) {
 		
 		HerbologicaIDs.MUG_UNLOCALIZED.add("mugEmpty");
-		HerbologicaIDs.MUG_EFFECT.add(null);
 		
 		HerbologicaAPI.addBerry("Raspberry", Reference.MOD_ID);
 		HerbologicaAPI.addBerry("Blueberry", Reference.MOD_ID);
@@ -99,6 +98,7 @@ public class ArsHerbologica {
 		HerbologicaAPI.addPlant("Rubber", Reference.MOD_ID);
 		HerbologicaAPI.addPlant("Canola", Reference.MOD_ID);
 		HerbologicaAPI.addPlant("Vanilla", Reference.MOD_ID);
+		HerbologicaAPI.addPlant("Tea", Reference.MOD_ID);
 		
 		LocalizationHandler.loadLanguages();
 		
@@ -108,7 +108,8 @@ public class ArsHerbologica {
 		
 		ModFluids.addFluids();
 		
-		HerbologicaAPI.addMugFluid("Coffee", ModFluids.fluidCoffee, Potion.moveSpeed, Reference.MOD_ID);
+		HerbologicaAPI.addMugFluid("Coffee", ModFluids.fluidCoffee, Potion.moveSpeed, 1200, 1, Reference.MOD_ID);
+		HerbologicaAPI.addMugFluid("Tea", ModFluids.fluidTea, Potion.moveSpeed, 800, 0, Reference.MOD_ID);
 		
 		ModItems.addItems();
 		

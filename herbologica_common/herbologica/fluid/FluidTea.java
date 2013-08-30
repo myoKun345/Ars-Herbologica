@@ -1,9 +1,7 @@
 package herbologica.fluid;
 
-import herbologica.block.ModBlocks;
-import herbologica.block.fluid.BlockFluidCoffee;
+import herbologica.block.fluid.BlockFluidTea;
 import herbologica.lib.HerbologicaIDs;
-import herbologica.lib.Reference;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.util.Icon;
 import net.minecraftforge.fluids.Fluid;
@@ -14,14 +12,14 @@ import cpw.mods.fml.relauncher.SideOnly;
 /**
  * Ars Herbologica
  * 
- * FluidCoffee
+ * FluidTea
  * 
  * @author Myo-kun
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class FluidCoffee extends Fluid {
+public class FluidTea extends Fluid {
 	
-	private IconRegister register;
+private IconRegister register;
 	
 	@SideOnly(Side.CLIENT)
 	public static Icon flowingIcon;
@@ -29,9 +27,9 @@ public class FluidCoffee extends Fluid {
 	@SideOnly(Side.CLIENT)
 	public static Icon stillIcon;
 	
-	public FluidCoffee(String name) {
+	public FluidTea(String name) {
 		super(name);
-		setBlockID(HerbologicaIDs.COFFEE_BLOCK);
+		setBlockID(HerbologicaIDs.TEA_BLOCK);
 		FluidRegistry.registerFluid(this);
 	}
 	
@@ -44,13 +42,14 @@ public class FluidCoffee extends Fluid {
 	@SideOnly(Side.CLIENT)
 	public Icon getFlowingIcon() {
 		//flowingIcon = register.registerIcon(Reference.MOD_ID + ":fluidCoffee_flow");
-		return BlockFluidCoffee.flowingIcon;
+		return BlockFluidTea.flowingIcon;
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Icon getStillIcon() {
 		//stillIcon = register.registerIcon(Reference.MOD_ID + ":fluidCoffee_still");
-		return BlockFluidCoffee.stillIcon;
+		return BlockFluidTea.stillIcon;
 	}
+
 }

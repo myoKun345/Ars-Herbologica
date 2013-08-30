@@ -127,7 +127,7 @@ public class ItemCoffeeMug extends ItemFluidContainer {
 				--stack.stackSize;
 				this.drain(stack, capacity, true);
 				if (!world.isRemote) {
-					player.addPotionEffect(new PotionEffect(HerbologicaIDs.MUG_EFFECT.get(stack.getItemDamage()).getId(), 1200, 1));
+					player.addPotionEffect(new PotionEffect(HerbologicaIDs.MUG_EFFECT.get(stack.getItemDamage() - 1).getId(), HerbologicaIDs.MUG_EFFECT_DURATION.get(stack.getItemDamage() - 1), HerbologicaIDs.MUG_EFFECT_MULTIPLIER.get(stack.getItemDamage() - 1)));
 				}
 			}
 		}

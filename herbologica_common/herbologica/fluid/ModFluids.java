@@ -13,9 +13,11 @@ import net.minecraftforge.fluids.Fluid;
 public class ModFluids {
 	
 	public static Fluid fluidCoffee;
+	public static Fluid fluidTea;
 	
 	public static void addFluids() {
 		fluidCoffee = new FluidCoffee("fluidCoffee");
+		fluidTea = new FluidTea("fluidTea");
 	}
 
 }

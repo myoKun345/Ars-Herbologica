@@ -46,11 +46,13 @@ public class HerbologicaAPI {
 		HerbologicaIDs.PLANT_MOD_ID.add(modid);
 	}
 	
-	public static void addMugFluid(String name, Fluid fluid, Potion effect, String modid) {
+	public static void addMugFluid(String name, Fluid fluid, Potion effect, int duration, int multiplier, String modid) {
 		HerbologicaIDs.MUG_UNLOCALIZED.add("mug" + name);
 		HerbologicaIDs.MUG_MOD_ID.add(modid);
 		HerbologicaIDs.MUG_FLUID.add(fluid);
 		HerbologicaIDs.MUG_EFFECT.add(effect);
+		HerbologicaIDs.MUG_EFFECT_DURATION.add(duration);
+		HerbologicaIDs.MUG_EFFECT_MULTIPLIER.add(multiplier);
 	}
 	
 }
