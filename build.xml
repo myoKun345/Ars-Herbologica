@@ -53,9 +53,21 @@
 
 		</copy>
 		
+		<copy todir="../../jobs/Ars Herbologica/toJar/powercrystals">
+
+			<fileset dir="../Forge/forge/mcp/reobf/minecraft/powercrystals" />
+
+		</copy>
+		
 		<copy todir="../../jobs/Ars Herbologica/toDeobf/herbologica">
 
 			<fileset dir="../Forge/forge/mcp/bin/minecraft/herbologica" />
+
+		</copy>
+		
+		<copy todir="../../jobs/Ars Herbologica/toDeobf/powercrystals">
+
+			<fileset dir="../Forge/forge/mcp/bin/minecraft/powercrystals" />
 
 		</copy>
 		
