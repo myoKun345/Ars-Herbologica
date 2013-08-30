@@ -7,6 +7,7 @@ import herbologica.core.HerbologicaCreativeTab;
 import herbologica.core.LocalizationHandler;
 import herbologica.fluid.ModFluids;
 import herbologica.item.ModItems;
+import herbologica.lib.HerbologicaIDs;
 import herbologica.lib.Reference;
 import herbologica.network.PacketHandler;
 import herbologica.proxy.CommonProxy;
@@ -15,6 +16,7 @@ import herbologica.tileentity.ModTileEntities;
 import java.io.File;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.potion.Potion;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -45,6 +47,9 @@ public class ArsHerbologica {
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
+		
+		HerbologicaIDs.MUG_UNLOCALIZED.add("mugEmpty");
+		HerbologicaIDs.MUG_EFFECT.add(null);
 		
 		HerbologicaAPI.addBerry("Raspberry", Reference.MOD_ID);
 		HerbologicaAPI.addBerry("Blueberry", Reference.MOD_ID);
@@ -102,6 +107,8 @@ public class ArsHerbologica {
 		ModTileEntities.addTileEntities();
 		
 		ModFluids.addFluids();
+		
+		HerbologicaAPI.addMugFluid("Coffee", ModFluids.fluidCoffee, Potion.moveSpeed, Reference.MOD_ID);
 		
 		ModItems.addItems();
 		

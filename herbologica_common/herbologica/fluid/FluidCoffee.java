@@ -1,6 +1,7 @@
 package herbologica.fluid;
 
 import herbologica.block.ModBlocks;
+import herbologica.block.fluid.BlockFluidCoffee;
 import herbologica.lib.HerbologicaIDs;
 import herbologica.lib.Reference;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -40,14 +41,16 @@ public class FluidCoffee extends Fluid {
 	}
 	
 	@Override
+	@SideOnly(Side.CLIENT)
 	public Icon getFlowingIcon() {
-		flowingIcon = register.registerIcon(Reference.MOD_ID + ":" + this.fluidName + "_flow");
-		return flowingIcon;
+		//flowingIcon = register.registerIcon(Reference.MOD_ID + ":fluidCoffee_flow");
+		return BlockFluidCoffee.flowingIcon;
 	}
 	
 	@Override
+	@SideOnly(Side.CLIENT)
 	public Icon getStillIcon() {
-		stillIcon = register.registerIcon(Reference.MOD_ID + ":" + this.fluidName + "_still");
-		return stillIcon;
+		//stillIcon = register.registerIcon(Reference.MOD_ID + ":fluidCoffee_still");
+		return BlockFluidCoffee.stillIcon;
 	}
 }

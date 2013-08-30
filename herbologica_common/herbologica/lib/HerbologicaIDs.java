@@ -2,6 +2,9 @@ package herbologica.lib;
 
 import java.util.LinkedList;
 
+import net.minecraft.potion.Potion;
+import net.minecraftforge.fluids.Fluid;
+
 /**
  * Ars Herbologica
  * 
@@ -57,9 +60,13 @@ public class HerbologicaIDs {
 		public static final LinkedList<String> BERRY_UNLOCALIZED = new LinkedList<String>();
 		public static final LinkedList<String> FRUIT_UNLOCALIZED = new LinkedList<String>();
 		public static final LinkedList<String> PLANT_UNLOCALIZED = new LinkedList<String>();
+		public static final LinkedList<String> MUG_UNLOCALIZED = new LinkedList<String>();
 		
 	/* API Utility Lists */
 	public static final LinkedList<String> BERRY_MOD_ID = new LinkedList<String>();
 	public static final LinkedList<String> FRUIT_MOD_ID = new LinkedList<String>();
 	public static final LinkedList<String> PLANT_MOD_ID = new LinkedList<String>();
+	public static final LinkedList<String> MUG_MOD_ID = new LinkedList<String>();
+	public static final LinkedList<Fluid> MUG_FLUID = new LinkedList<Fluid>();
+	public static final LinkedList<Potion> MUG_EFFECT = new LinkedList<Potion>();
 }

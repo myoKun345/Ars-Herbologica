@@ -1,6 +1,8 @@
 package herbologica.api;
 
 import herbologica.lib.HerbologicaIDs;
+import net.minecraft.potion.Potion;
+import net.minecraftforge.fluids.Fluid;
 
 /**
  * Ars Herbologica
@@ -42,6 +44,13 @@ public class HerbologicaAPI {
 	public static void addPlant(String name, String modid) {
 		HerbologicaIDs.PLANT_UNLOCALIZED.add("plant" + name);
 		HerbologicaIDs.PLANT_MOD_ID.add(modid);
+	}
+	
+	public static void addMugFluid(String name, Fluid fluid, Potion effect, String modid) {
+		HerbologicaIDs.MUG_UNLOCALIZED.add("mug" + name);
+		HerbologicaIDs.MUG_MOD_ID.add(modid);
+		HerbologicaIDs.MUG_FLUID.add(fluid);
+		HerbologicaIDs.MUG_EFFECT.add(effect);
 	}
 	
 }
