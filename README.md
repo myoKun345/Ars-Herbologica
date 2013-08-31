@@ -14,10 +14,13 @@ Roadmap
 ## First Release (0.1.xx, ~September/October)
 
 *Fruits, Berries and Vegetables* All edible plant items, basically, with crop versions of each. (Oranges, Strawberries, etc.)
+
 *Utility Plants* Plant items and their crops whose raw forms are not immediately edible. (Vanilla, Coffee, etc.)
+
 *Basic Mod Interoperability* Compatibility with other mods, where it makes sense. (I'll add fruit trees into Forestry farms, but not add facades for berry bushes.)
 
 ## Advanced Mechanics (0.2-9.xx, ~December/January-June/July)
 
 *Cross-breeding Plants* This is where the science and research parts come into play.
+
 *Miscellaneous Machines* Stuff like the coffee maker and brewery.
