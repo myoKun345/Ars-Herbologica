@@ -1,6 +1,5 @@
 package herbologica.block.fluid;
 
-import herbologica.fluid.FluidCoffee;
 import herbologica.fluid.ModFluids;
 import herbologica.lib.HerbologicaIDs;
 import herbologica.lib.Reference;
