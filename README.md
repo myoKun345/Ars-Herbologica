@@ -1,5 +1,7 @@
-Ars-Herbologica
+Ars Herbologica
 ===============
+
+A botany/herbology/horticulture/plant stuff mod! This mod is unrelated to Ars Magica.
 
 Builds: http://mods.austin-jones.info/builds/arsherbologica/
 
