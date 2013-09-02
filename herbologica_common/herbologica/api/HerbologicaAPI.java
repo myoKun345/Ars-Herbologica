@@ -46,6 +46,25 @@ public class HerbologicaAPI {
 		HerbologicaIDs.PLANT_MOD_ID.add(modid);
 	}
 	
+	/**
+	 * Adds an edible vegetable item. Restores 4 hunger and 6.0 saturation.
+	 * @param name - The name of the vegetable you are going to add; Must not have spaces
+	 * @param modid - Your mod id, to be used in the folder to store textures
+	 */
+	public static void addVegetable(String name, String modid) {
+		HerbologicaIDs.VEGETABLE_UNLOCALIZED.add("vegetable" + name);
+		HerbologicaIDs.VEGETABLE_MOD_ID.add(modid);
+	}
+	
+	/**
+	 * Adds a drinkable fluid to the mug item.
+	 * @param name - The name of the drink you are going to add; Must not have spaces
+	 * @param fluid - The fluid instance that is being registered.
+	 * @param effect - The potion effect, if any, that the drink applies to the player. Put null if you don't want it to do anything.
+	 * @param duration - The duration of the potion effect, if any. Put null if you don't want it to do anything.
+	 * @param multiplier - The multiplier of the potion effect, if any. Put null if you don't want it to do anything.
+	 * @param modid - Your mod id, to be used in the folder to store textures.
+	 */
 	public static void addMugFluid(String name, Fluid fluid, Potion effect, int duration, int multiplier, String modid) {
 		HerbologicaIDs.MUG_UNLOCALIZED.add("mug" + name);
 		HerbologicaIDs.MUG_MOD_ID.add(modid);

@@ -100,6 +100,44 @@ public class ArsHerbologica {
 		HerbologicaAPI.addPlant("Vanilla", Reference.MOD_ID);
 		HerbologicaAPI.addPlant("Tea", Reference.MOD_ID);
 		
+		HerbologicaAPI.addVegetable("Beet", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("BrusselSprout", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("Cabbage", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("Celery", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("Kale", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("Lettuce", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("Spinach", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("Avocado", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("BellPepper", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("Cucumber", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("Eggplant", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("Squash", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("Tomato", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("Zucchini", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("Artichoke", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("Broccoli", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("Cauliflower", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("Okra", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("Pea", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("Asparagus", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("Garlic", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("Leek", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("Onion", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("Scallion", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("Shallot", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("BambooShoot", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("Daikon", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("Ginger", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("Horseradish", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("Parsnip", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("Radish", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("Rutabaga", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("SweetPotato", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("Turnip", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("Wasabi", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("WaterChestnut", Reference.MOD_ID);
+		HerbologicaAPI.addVegetable("Yam", Reference.MOD_ID);
+		
 		LocalizationHandler.loadLanguages();
 		
 		ConfigurationHandler.initMain(new File(event.getModConfigurationDirectory().getAbsolutePath() + File.separator + Reference.MOD_ID + File.separator + Reference.MOD_ID + ".cfg"));

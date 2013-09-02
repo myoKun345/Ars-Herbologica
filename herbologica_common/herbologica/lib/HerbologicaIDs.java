@@ -46,30 +46,35 @@ public class HerbologicaIDs {
 		public static final int BERRY_DEFAULT = 14000;
 		public static final int FRUIT_DEFAULT = 14001;
 		public static final int PLANT_DEFAULT = 14002;
+		public static final int VEGETABLE_DEFAULT = 14003;
 		public static final int MUG_DEFAULT = 14005;
 		
 		/* Current IDs */
 		public static int BERRY;
 		public static int FRUIT;
 		public static int PLANT;
+		public static int VEGETABLE;
 		public static int MUG;
 		
 		/* Config Keys */
 		public static final String BERRY_KEY = "BerryID";
 		public static final String FRUIT_KEY = "FruitID";
 		public static final String PLANT_KEY = "PlantID";
+		public static final String VEGETABLE_KEY = "VegetableID";
 		public static final String MUG_KEY = "MugID";
 		
 		/* Unlocalized Names */
 		public static final LinkedList<String> BERRY_UNLOCALIZED = new LinkedList<String>();
 		public static final LinkedList<String> FRUIT_UNLOCALIZED = new LinkedList<String>();
 		public static final LinkedList<String> PLANT_UNLOCALIZED = new LinkedList<String>();
+		public static final LinkedList<String> VEGETABLE_UNLOCALIZED = new LinkedList<String>();
 		public static final LinkedList<String> MUG_UNLOCALIZED = new LinkedList<String>();
 		
 	/* API Utility Lists */
 	public static final LinkedList<String> BERRY_MOD_ID = new LinkedList<String>();
 	public static final LinkedList<String> FRUIT_MOD_ID = new LinkedList<String>();
 	public static final LinkedList<String> PLANT_MOD_ID = new LinkedList<String>();
+	public static final LinkedList<String> VEGETABLE_MOD_ID = new LinkedList<String>();
 	public static final LinkedList<String> MUG_MOD_ID = new LinkedList<String>();
 	public static final LinkedList<Fluid> MUG_FLUID = new LinkedList<Fluid>();
 	public static final LinkedList<Potion> MUG_EFFECT = new LinkedList<Potion>();

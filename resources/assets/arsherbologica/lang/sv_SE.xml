@@ -68,4 +68,5 @@
 	<entry key="item.plantRubber.name">Gummiväxt</entry>
 	<entry key="item.plantCanola.name">Canola</entry>
 	<entry key="item.plantVanilla.name">Vaniljbönor</entry>
+	<entry key="item.plantTea.name">Teblad</entry>
 </properties>

@@ -15,12 +15,14 @@ public class ModItems {
 	public static Item herbologicaBerry;
 	public static Item herbologicaFruit;
 	public static Item herbologicaPlant;
+	public static Item herbologicaVegetable;
 	public static Item herbologicaMug;
 	
 	public static void addItems() {
 		herbologicaBerry = new ItemHerbologicaBerry(HerbologicaIDs.BERRY);
 		herbologicaFruit = new ItemHerbologicaFruit(HerbologicaIDs.FRUIT);
 		herbologicaPlant = new ItemHerbologicaPlant(HerbologicaIDs.PLANT);
+		herbologicaVegetable = new ItemHerbologicaVegetable(HerbologicaIDs.VEGETABLE);
 		herbologicaMug = new ItemCoffeeMug(HerbologicaIDs.MUG);
 	}
 

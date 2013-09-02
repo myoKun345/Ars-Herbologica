@@ -20,6 +20,9 @@
 	<entry key="tile.blockBushLychee.name">Lychee Bush</entry>
 	<entry key="tile.blockBushSoarynberry.name">Soarynberry Bush</entry>
 	
+	<entry key="tile.blockFluidCoffee.name">Coffee</entry>
+	<entry key="tile.blockFluidTea.name">Tea</entry>
+	
 	<entry key="item.berryRaspberry.name">Raspberry</entry>
 	<entry key="item.berryBlueberry.name">Blueberry</entry>
 	<entry key="item.berryCranberry.name">Cranberry</entry>
@@ -68,4 +71,11 @@
 	<entry key="item.plantRubber.name">Rubber Plant</entry>
 	<entry key="item.plantCanola.name">Canola</entry>
 	<entry key="item.plantVanilla.name">Vanilla Beans</entry>
+	
+	<entry key="fluid.fluidCoffee.name">Coffee</entry>
+	<entry key="fluid.fluidTea.name">Tea</entry>
+	<entry key="fluid.fluidCoffee">Coffee</entry>
+	<entry key="fluid.fluidTea">Tea</entry>
+	<entry key="fluid.fluidcoffee">Coffee</entry>
+	<entry key="fluid.fluidtea">Tea</entry>
 </properties>
