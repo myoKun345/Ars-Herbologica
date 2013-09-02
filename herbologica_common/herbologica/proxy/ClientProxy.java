@@ -1,10 +1,13 @@
 package herbologica.proxy;
 
+import herbologica.render.BushRender;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
 
 import org.lwjgl.opengl.GL11;
+
+import cpw.mods.fml.client.registry.RenderingRegistry;
 
 /**
  * Ars Herbologica
@@ -15,6 +18,11 @@ import org.lwjgl.opengl.GL11;
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
 public class ClientProxy extends CommonProxy {
+	
+	@Override
+	public void registerRender() {
+		RenderingRegistry.registerBlockHandler(new BushRender());
+	}
 	
 	public static void renderStandardInvBlock(RenderBlocks renderblocks, Block block, int meta) {
         Tessellator tessellator = Tessellator.instance;

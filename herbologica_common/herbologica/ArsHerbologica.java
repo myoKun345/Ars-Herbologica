@@ -158,6 +158,8 @@ public class ArsHerbologica {
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
 		
+		proxy.registerRender();
+		
 	}
 	
 	@EventHandler
