@@ -1,6 +1,8 @@
 package herbologica.block.crop;
 
 import herbologica.ArsHerbologica;
+import herbologica.core.LogHelper;
+import herbologica.item.ModItems;
 import herbologica.lib.HerbologicaIDs;
 import herbologica.lib.Reference;
 import herbologica.render.BushRender;
@@ -8,13 +10,16 @@ import herbologica.tileentity.crop.TileEntityBush;
 
 import java.util.List;
 import java.util.Random;
+import java.util.logging.Level;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeavesBase;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -23,6 +28,7 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
+import net.minecraftforge.common.FakePlayer;
 import net.minecraftforge.common.IPlantable;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -70,7 +76,7 @@ public class BlockHerbologicaBush extends BlockLeavesBase implements IPlantable,
             return fancyIcons[metadata];
         }
         else {
-            return fastIcons[metadata];
+            return fancyIcons[metadata];
         }
     }
     
@@ -86,6 +92,8 @@ public class BlockHerbologicaBush extends BlockLeavesBase implements IPlantable,
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
     	
         TileEntityBush tileentity = (TileEntityBush)world.getBlockTileEntity(x, y, z);
+        
+        LogHelper.log(Level.INFO, "GCBBFP Stage: " + tileentity.growthStage);
         
         if (tileentity == null) {
         	return AxisAlignedBB.getBoundingBox((double) x + 0.25D, y, (double) z + 0.25D, (double) x + 0.75D, (double) y + 0.5D, (double) z + 0.75D);
@@ -105,6 +113,8 @@ public class BlockHerbologicaBush extends BlockLeavesBase implements IPlantable,
     public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z) {
     	
         TileEntityBush tileentity = (TileEntityBush)world.getBlockTileEntity(x, y, z);
+        
+        LogHelper.log(Level.INFO, "GSBBFP Stage: " + tileentity.growthStage);
         
         if (tileentity == null) {
         	return AxisAlignedBB.getBoundingBox((double) x + 0.25D, y, (double) z + 0.25D, (double) x + 0.75D, (double) y + 0.5D, (double) z + 0.75D);
@@ -159,14 +169,24 @@ public class BlockHerbologicaBush extends BlockLeavesBase implements IPlantable,
     
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int i, float j, float k, float l) {
+    	TileEntityBush te = (TileEntityBush)world.getBlockTileEntity(x, y, z);
+    	int meta = world.getBlockMetadata(x, y, z);
     	
-    	TileEntityBush tileentity = (TileEntityBush)world.getBlockTileEntity(x, y, z);
-    	
-    	if (tileentity.growthStage < 15) {
-    		tileentity.growthStage++;
-    		return true;
-    	}
-    	return false;
+        if (te.growthStage >= 15)
+        {
+            if (world.isRemote) {
+            	return true;
+            }
+
+            te.growthStage = 12;
+            EntityItem entityitem = new EntityItem(world, player.posX, player.posY - 1.0D, player.posZ, new ItemStack(ModItems.herbologicaBerry.itemID, 1, meta));
+            world.spawnEntityInWorld(entityitem);
+            if (!(player instanceof FakePlayer)) {
+            	entityitem.onCollideWithPlayer(player);
+            }
+            return true;
+        }
+        return false;
     }
 	
 	@Override
@@ -217,6 +237,35 @@ public class BlockHerbologicaBush extends BlockLeavesBase implements IPlantable,
         else
         {
             return true;
+        }
+    }
+	
+	@Override
+    public void updateTick(World world, int x, int y, int z, Random random) {
+        if (world.isRemote) {
+            return;
+        }
+        
+        LogHelper.log(Level.INFO, "Ticking bush");
+
+        int height;
+
+        for (height = 1; world.getBlockId(x, y - height, z) == this.blockID; ++height);
+
+        if (random.nextInt(2) == 0 && world.getBlockLightValue(x, y, z) >= 8) {
+        	Minecraft mc = Minecraft.getMinecraft();
+        	TileEntityBush te = (TileEntityBush)world.getBlockTileEntity(x, y, z);
+            int meta = world.getBlockMetadata(x, y, z);
+            
+            if (te.growthStage < 15) {
+            	LogHelper.log(Level.INFO, "Growing bush");
+            	LogHelper.log(Level.INFO, "Stage before: " + te.getGrowthStage());
+            	te.grow(1, mc.renderGlobal, x, y, z);
+            	mc.renderGlobal.markBlockForUpdate(x, y, z);
+            }
+            if (random.nextInt(3) == 0 && height < 3 && world.getBlockId(x, y + 1, z) == 0 && te.growthStage >= 12) {
+                world.setBlock(x, y + 1, z, blockID, meta, 3);
+            }
         }
     }
 

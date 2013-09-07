@@ -1,10 +1,14 @@
 package herbologica.render;
 
+import herbologica.core.LogHelper;
 import herbologica.proxy.ClientProxy;
 import herbologica.tileentity.crop.TileEntityBush;
+
+import java.util.logging.Level;
+
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.world.IBlockAccess;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -26,6 +30,8 @@ public class BushRender implements ISimpleBlockRenderingHandler
 
         if (modelId == bushModel) {
             TileEntityBush tileentity = (TileEntityBush)world.getBlockTileEntity(x, y, z);
+            
+            LogHelper.log(Level.INFO, "renderWorldBlock Stage: " + tileentity.growthStage);
             
             if (tileentity == null) {
             	renderer.setRenderBounds(0.25F, 0.0F, 0.25F, 0.75F, 0.5F, 0.75F);

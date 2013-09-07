@@ -5,6 +5,7 @@ import herbologica.block.ModBlocks;
 import herbologica.config.ConfigurationHandler;
 import herbologica.core.HerbologicaCreativeTab;
 import herbologica.core.LocalizationHandler;
+import herbologica.core.LogHelper;
 import herbologica.fluid.ModFluids;
 import herbologica.item.ModItems;
 import herbologica.lib.HerbologicaIDs;
@@ -47,6 +48,8 @@ public class ArsHerbologica {
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
+		
+		LogHelper.init();
 		
 		HerbologicaIDs.MUG_UNLOCALIZED.add("mugEmpty");
 		
