@@ -299,28 +299,39 @@ public class BlockHerbologicaBush extends BlockLeavesBase implements IPlantable,
 	
 	@Override
     public void updateTick(World world, int x, int y, int z, Random random) {
-        if (world.isRemote) {
-            return;
+    	Minecraft mc = Minecraft.getMinecraft();
+    	
+		if (world.isRemote) {
+            if (worldClient == null) {
+            	worldClient = mc.theWorld;
+            }
         }
-        
-        TileEntityBush teClient = (TileEntityBush)worldClient.getBlockTileEntity(x, y, z);
-        TileEntityBush teServer = (TileEntityBush)worldServer.getBlockTileEntity(x, y, z);
-        
-        LogHelper.log(Level.INFO, "Ticking bush");
-
-        int height;
+        else {
+            if (worldServer == null) {
+            	worldServer = world;
+            }
+        }
+		
+		LogHelper.log(Level.INFO, "Ticking bush");
+		
+		int height;
 
         for (height = 1; world.getBlockId(x, y - height, z) == this.blockID; ++height);
-
-        if (random.nextInt(1) == 0 && world.getBlockLightValue(x, y, z) >= 8) {
-        	Minecraft mc = Minecraft.getMinecraft();
+        
+		TileEntityBush teClient = (TileEntityBush)worldClient.getBlockTileEntity(x, y, z);
+        TileEntityBush teServer = (TileEntityBush)worldServer.getBlockTileEntity(x, y, z);
+        
+        LogHelper.log(Level.INFO, "Client: " + teClient.toString());
+        LogHelper.log(Level.INFO, "Server: " + teServer.toString());
+    	teClient.growthStage = teServer.growthStage;
+		
+		if (random.nextInt(1) == 0 && world.getBlockLightValue(x, y, z) >= 8) {
             int meta = world.getBlockMetadata(x, y, z);
             
             if (teServer.growthStage < 15) {
             	LogHelper.log(Level.INFO, "Growing bush");
             	LogHelper.log(Level.INFO, "Stage before: " + teServer.getGrowthStage());
             	teServer.grow(1, mc.renderGlobal, x, y, z);
-            	teClient.grow(1, mc.renderGlobal, x, y, z);
             	mc.renderGlobal.markBlockForUpdate(x, y, z);
             }
             if (random.nextInt(3) == 0 && height < 3 && world.getBlockId(x, y + 1, z) == 0 && teServer.growthStage >= 8) {
