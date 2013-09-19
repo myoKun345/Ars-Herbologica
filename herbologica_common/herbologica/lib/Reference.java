@@ -13,6 +13,6 @@ public class Reference {
 	public static final String MOD_ID = "ArsHerbologica";
 	public static final String MOD_NAME = "Ars Herbologica";
 	public static final String VERSION = "0.0.01.@@BUILD@@";
-	public static final String CHANNEL = "herbologica";
+	public static final String BUSH_CHANNEL = "arsbush";
 	public static final int ITEM_ID_CORRECTION = 256;
 }

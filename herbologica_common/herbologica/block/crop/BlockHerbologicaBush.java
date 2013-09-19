@@ -41,7 +41,7 @@ import cpw.mods.fml.relauncher.SideOnly;
  * @author Myo-kun
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class BlockHerbologicaBush extends BlockLeavesBase implements IPlantable,ITileEntityProvider {
+public class BlockHerbologicaBush extends BlockLeavesBase implements IPlantable, ITileEntityProvider {
 	
 	@SideOnly(Side.CLIENT)
     private Icon[] fastIcons;
@@ -141,62 +141,28 @@ public class BlockHerbologicaBush extends BlockLeavesBase implements IPlantable,
         float maxX;
         float maxY;
         float maxZ;
-    	
-    	if (worldClient != null) {
-    		TileEntityBush teClient = (TileEntityBush)worldClient.getBlockTileEntity(x, y, z);
-    		
-    		if (teClient != null) {
-				if (teClient.growthStage < 4) {
-					minX = minZ = 0.25F;
-					maxX = maxZ = 0.75F;
-					maxY = 0.5F;
-				} 
-				else 
-				if (teClient.growthStage < 8) {
-					minX = minZ = 0.125F;
-					maxX = maxZ = 0.875F;
-					maxY = 0.75F;
-				} 
-				else {
-					minX = minZ = 0.0F;
-					maxX = maxZ = 1.0F;
-					maxY = 1.0F;
-				}
-			}
-    		else {
-    			minX = minZ = 0.25F;
+        
+        TileEntityBush te = (TileEntityBush)block.getBlockTileEntity(x, y, z);
+        
+        if (te != null) {
+        	if (te.growthStage < 4) {
+				minX = minZ = 0.25F;
 				maxX = maxZ = 0.75F;
 				maxY = 0.5F;
+			} 
+			else 
+			if (te.growthStage < 8) {
+				minX = minZ = 0.125F;
+				maxX = maxZ = 0.875F;
+				maxY = 0.75F;
+			} 
+			else {
+				minX = minZ = 0.0F;
+				maxX = maxZ = 1.0F;
+				maxY = 1.0F;
 			}
-    	}
-    	if (worldServer != null) {
-    		TileEntityBush teServer = (TileEntityBush)worldServer.getBlockTileEntity(x, y, z);
-    		
-    		if (teServer != null) {
-				if (teServer.growthStage < 4) {
-					minX = minZ = 0.25F;
-					maxX = maxZ = 0.75F;
-					maxY = 0.5F;
-				} 
-				else 
-				if (teServer.growthStage < 8) {
-					minX = minZ = 0.125F;
-					maxX = maxZ = 0.875F;
-					maxY = 0.75F;
-				} 
-				else {
-					minX = minZ = 0.0F;
-					maxX = maxZ = 1.0F;
-					maxY = 1.0F;
-				}
-			}
-    		else {
-    			minX = minZ = 0.25F;
-				maxX = maxZ = 0.75F;
-				maxY = 0.5F;
-			}
-    	}
-    	else {
+        }
+        else {
     		minX = minZ = 0.25F;
             maxX = maxZ = 0.75F;
             maxY = 0.5F;
@@ -214,7 +180,6 @@ public class BlockHerbologicaBush extends BlockLeavesBase implements IPlantable,
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int i, float j, float k, float l) {
     	TileEntityBush te = (TileEntityBush)world.getBlockTileEntity(x, y, z);
-    	TileEntityBush teClient = (TileEntityBush)worldClient.getBlockTileEntity(x, y, z);
     	int meta = world.getBlockMetadata(x, y, z);
     	
         if (te.growthStage >= 15)
@@ -223,8 +188,7 @@ public class BlockHerbologicaBush extends BlockLeavesBase implements IPlantable,
             	return true;
             }
 
-            te.growthStage = 12;
-            teClient.growthStage = 12;
+            te.grow(-3, world, x, y, z);
             EntityItem entityitem = new EntityItem(world, player.posX, player.posY - 1.0D, player.posZ, new ItemStack(ModItems.herbologicaBerry.itemID, 1, meta));
             world.spawnEntityInWorld(entityitem);
             if (!(player instanceof FakePlayer)) {
@@ -300,17 +264,6 @@ public class BlockHerbologicaBush extends BlockLeavesBase implements IPlantable,
 	@Override
     public void updateTick(World world, int x, int y, int z, Random random) {
     	Minecraft mc = Minecraft.getMinecraft();
-    	
-		if (world.isRemote) {
-            if (worldClient == null) {
-            	worldClient = mc.theWorld;
-            }
-        }
-        else {
-            if (worldServer == null) {
-            	worldServer = world;
-            }
-        }
 		
 		LogHelper.log(Level.INFO, "Ticking bush");
 		
@@ -318,12 +271,7 @@ public class BlockHerbologicaBush extends BlockLeavesBase implements IPlantable,
 
         for (height = 1; world.getBlockId(x, y - height, z) == this.blockID; ++height);
         
-		TileEntityBush teClient = (TileEntityBush)worldClient.getBlockTileEntity(x, y, z);
-        TileEntityBush teServer = (TileEntityBush)worldServer.getBlockTileEntity(x, y, z);
-        
-        LogHelper.log(Level.INFO, "Client: " + teClient.toString());
-        LogHelper.log(Level.INFO, "Server: " + teServer.toString());
-    	teClient.growthStage = teServer.growthStage;
+		TileEntityBush teServer = (TileEntityBush)world.getBlockTileEntity(x, y, z);
 		
 		if (random.nextInt(1) == 0 && world.getBlockLightValue(x, y, z) >= 8) {
             int meta = world.getBlockMetadata(x, y, z);
@@ -331,7 +279,7 @@ public class BlockHerbologicaBush extends BlockLeavesBase implements IPlantable,
             if (teServer.growthStage < 15) {
             	LogHelper.log(Level.INFO, "Growing bush");
             	LogHelper.log(Level.INFO, "Stage before: " + teServer.getGrowthStage());
-            	teServer.grow(1, mc.renderGlobal, x, y, z);
+            	teServer.grow(1, world, x, y, z);
             	mc.renderGlobal.markBlockForUpdate(x, y, z);
             }
             if (random.nextInt(3) == 0 && height < 3 && world.getBlockId(x, y + 1, z) == 0 && teServer.growthStage >= 8) {

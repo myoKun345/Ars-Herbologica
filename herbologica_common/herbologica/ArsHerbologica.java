@@ -36,7 +36,7 @@ import cpw.mods.fml.common.network.NetworkMod;
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
-@NetworkMod(channels = {Reference.CHANNEL}, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class)
+@NetworkMod(channels = {Reference.BUSH_CHANNEL}, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class)
 public class ArsHerbologica {
 	@Instance(Reference.MOD_ID)
 	public static ArsHerbologica instance;
