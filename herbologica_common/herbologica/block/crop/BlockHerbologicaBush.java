@@ -17,6 +17,7 @@ import net.minecraft.block.BlockLeavesBase;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
@@ -29,6 +30,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.FakePlayer;
+import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.IPlantable;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -262,8 +264,14 @@ public class BlockHerbologicaBush extends BlockLeavesBase implements IPlantable,
     }
 	
 	@Override
+	public void onNeighborBlockChange(World world, int x, int y, int z, int neighbor) {
+		super.onNeighborBlockChange(world, x, y, z, neighbor);
+		this.updateWithoutGrowthChance(world, x, y, z);
+	}
+	
+	@Override
     public void updateTick(World world, int x, int y, int z, Random random) {
-    	Minecraft mc = Minecraft.getMinecraft();
+		this.updateWithoutGrowthChance(world, x, y, z);
 		
 		LogHelper.log(Level.INFO, "Ticking bush");
 		
@@ -273,19 +281,65 @@ public class BlockHerbologicaBush extends BlockLeavesBase implements IPlantable,
         
 		TileEntityBush teServer = (TileEntityBush)world.getBlockTileEntity(x, y, z);
 		
-		if (random.nextInt(1) == 0 && world.getBlockLightValue(x, y, z) >= 8) {
+		if (random.nextInt(2) == 0 && world.getBlockLightValue(x, y, z) >= 8) {
             int meta = world.getBlockMetadata(x, y, z);
             
-            if (teServer.growthStage < 15) {
-            	LogHelper.log(Level.INFO, "Growing bush");
-            	LogHelper.log(Level.INFO, "Stage before: " + teServer.getGrowthStage());
-            	teServer.grow(1, world, x, y, z);
-            	mc.renderGlobal.markBlockForUpdate(x, y, z);
-            }
-            if (random.nextInt(3) == 0 && height < 3 && world.getBlockId(x, y + 1, z) == 0 && teServer.growthStage >= 8) {
-                world.setBlock(x, y + 1, z, blockID, meta, 3);
+            if (teServer != null) {
+            	if (teServer.growthStage < 15) {
+	            	LogHelper.log(Level.INFO, "Growing bush");
+	            	LogHelper.log(Level.INFO, "Stage before: " + teServer.getGrowthStage());
+	            	teServer.grow(1, world, x, y, z);
+	            }
+	            if (random.nextInt(3) == 0 && height < 3 && world.getBlockId(x, y + 1, z) == 0 && teServer.growthStage >= 8) {
+	                world.setBlock(x, y + 1, z, blockID, meta, 3);
+	            }
             }
         }
     }
-
+	
+	public void updateWithoutGrowthChance(World world, int x, int y, int z) {
+		this.checkChange(world, x, y, z);
+		
+		Minecraft mc = Minecraft.getMinecraft();
+		TileEntityBush te = (TileEntityBush)world.getBlockTileEntity(x, y, z);
+		
+		if (te != null && !this.checkIfServerAndClientAreSynced(mc.theWorld, world, x, y, z)) {
+			te.sendStagePacket(world, x, y, z);
+		}
+	}
+	
+	protected boolean checkIfServerAndClientAreSynced(WorldClient client, World server, int x, int y, int z) {
+		TileEntityBush teClient = (TileEntityBush)client.getBlockTileEntity(x, y, z);
+		TileEntityBush teServer = (TileEntityBush)server.getBlockTileEntity(x, y, z);
+		
+		if (teClient != null && teServer != null) {
+			return teClient.getGrowthStage() == teServer.getGrowthStage();
+		}
+		else {
+			return false;
+		}
+	}
+	
+	@Override
+	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
+		return super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z);
+	}
+	
+	@Override
+	public boolean canBlockStay(World world, int x, int y, int z) {
+		Block underneath = blocksList[world.getBlockId(x, y - 1, z)];
+		TileEntityBush te = (TileEntityBush)world.getBlockTileEntity(x, y, z);
+		return underneath != null && 
+				(underneath.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this) || 
+				(underneath.blockID == this.blockID && 
+				(te != null && te.growthStage >= 8)));
+	}
+	
+	public void checkChange(World world, int x, int y, int z) {
+		if (!this.canBlockStay(world, x, y, z)) {
+			this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
+			world.setBlock(x, y, z, 0, 0, 2);
+		}
+	}
+	
 }

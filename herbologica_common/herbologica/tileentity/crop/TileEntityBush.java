@@ -41,6 +41,10 @@ public class TileEntityBush extends TileEntity {
 	
 	public void grow(int i, World world, int x, int y, int z) {
 		this.growthStage = (short)(growthStage + i);
+		this.sendStagePacket(world, x, y, z);
+	}
+	
+	public void sendStagePacket(World world, int x, int y, int z) {
 		ByteArrayOutputStream bos = new ByteArrayOutputStream(8);
 		DataOutputStream outputStream = new DataOutputStream(bos);
 		try {
