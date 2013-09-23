@@ -1,7 +1,7 @@
-package herbologica.render;
+package herbologica.client;
 
+import herbologica.core.ClientProxy;
 import herbologica.core.LogHelper;
-import herbologica.proxy.ClientProxy;
 import herbologica.tileentity.crop.TileEntityBush;
 
 import java.util.logging.Level;

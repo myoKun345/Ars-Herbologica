@@ -1,8 +1,8 @@
 package herbologica.compatibility.minefactoryreloaded;
 
 import herbologica.compatibility.minefactoryreloaded.fluid.DrinkHandlerCoffee;
-import herbologica.lib.HerbologicaIDs;
-import herbologica.lib.Reference;
+import herbologica.core.HerbologicaIDs;
+import herbologica.core.Reference;
 import powercrystals.minefactoryreloaded.api.FarmingRegistry;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Loader;

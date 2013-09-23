@@ -1,7 +1,8 @@
 package herbologica.item;
 
 import herbologica.ArsHerbologica;
-import herbologica.lib.HerbologicaIDs;
+import herbologica.core.HerbologicaIDs;
+import herbologica.core.HerbologicaStuff;
 
 import java.util.List;
 
@@ -131,7 +132,7 @@ public class ItemCoffeeMug extends ItemFluidContainer {
 				}
 			}
 		}
-		return stack.stackSize <= 0 ? new ItemStack(ModItems.herbologicaMug, 1, 0) : stack;
+		return stack.stackSize <= 0 ? new ItemStack(HerbologicaStuff.herbologicaMug, 1, 0) : stack;
     }
 	
 	@Override

@@ -1,6 +1,6 @@
-package herbologica.proxy;
+package herbologica.core;
 
-import herbologica.render.BushRender;
+import herbologica.client.BushRender;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;

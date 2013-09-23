@@ -1,6 +1,6 @@
 package herbologica.block.util;
 
-import herbologica.lib.HerbologicaIDs;
+import herbologica.core.HerbologicaIDs;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 

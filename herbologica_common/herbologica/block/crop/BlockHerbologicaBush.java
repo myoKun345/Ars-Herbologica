@@ -1,11 +1,11 @@
 package herbologica.block.crop;
 
 import herbologica.ArsHerbologica;
+import herbologica.client.BushRender;
+import herbologica.core.HerbologicaIDs;
+import herbologica.core.HerbologicaStuff;
 import herbologica.core.LogHelper;
-import herbologica.item.ModItems;
-import herbologica.lib.HerbologicaIDs;
-import herbologica.lib.Reference;
-import herbologica.render.BushRender;
+import herbologica.core.Reference;
 import herbologica.tileentity.crop.TileEntityBush;
 
 import java.util.List;
@@ -191,7 +191,7 @@ public class BlockHerbologicaBush extends BlockLeavesBase implements IPlantable,
             }
 
             te.grow(-3, world, x, y, z);
-            EntityItem entityitem = new EntityItem(world, player.posX, player.posY - 1.0D, player.posZ, new ItemStack(ModItems.herbologicaBerry.itemID, 1, meta));
+            EntityItem entityitem = new EntityItem(world, player.posX, player.posY - 1.0D, player.posZ, new ItemStack(HerbologicaStuff.herbologicaBerry.itemID, 1, meta));
             world.spawnEntityInWorld(entityitem);
             if (!(player instanceof FakePlayer)) {
             	entityitem.onCollideWithPlayer(player);

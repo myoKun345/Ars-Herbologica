@@ -3,8 +3,8 @@ package herbologica.item;
 import java.util.List;
 
 import herbologica.ArsHerbologica;
-import herbologica.lib.HerbologicaIDs;
-import herbologica.lib.Reference;
+import herbologica.core.HerbologicaIDs;
+import herbologica.core.Reference;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;

@@ -1,14 +1,14 @@
 package herbologica.block.fluid;
 
-import herbologica.fluid.ModFluids;
-import herbologica.lib.HerbologicaIDs;
-import herbologica.lib.Reference;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import herbologica.core.HerbologicaIDs;
+import herbologica.core.HerbologicaStuff;
+import herbologica.core.Reference;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.util.Icon;
 import net.minecraftforge.fluids.BlockFluidClassic;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * Ars Herbologica
@@ -27,7 +27,7 @@ public class BlockFluidTea extends BlockFluidClassic {
 	public static Icon stillIcon;
 	
 	public BlockFluidTea(int id) {
-		super(id, ModFluids.fluidTea, Material.water);
+		super(id, HerbologicaStuff.fluidTea, Material.water);
 	}
 	
 	@Override

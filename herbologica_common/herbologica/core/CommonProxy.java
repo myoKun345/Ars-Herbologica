@@ -1,4 +1,4 @@
-package herbologica.proxy;
+package herbologica.core;
 
 /**
  * Ars Herbologica

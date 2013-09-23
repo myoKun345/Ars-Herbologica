@@ -1,6 +1,4 @@
-package herbologica.config;
-
-import herbologica.lib.HerbologicaIDs;
+package herbologica.core;
 
 import java.io.File;
 

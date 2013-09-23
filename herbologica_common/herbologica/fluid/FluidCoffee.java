@@ -1,9 +1,7 @@
 package herbologica.fluid;
 
-import herbologica.block.ModBlocks;
 import herbologica.block.fluid.BlockFluidCoffee;
-import herbologica.lib.HerbologicaIDs;
-import herbologica.lib.Reference;
+import herbologica.core.HerbologicaIDs;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.util.Icon;
 import net.minecraftforge.fluids.Fluid;

@@ -1,7 +1,7 @@
 package herbologica.tileentity.crop;
 
 import herbologica.core.LogHelper;
-import herbologica.lib.Reference;
+import herbologica.core.Reference;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;

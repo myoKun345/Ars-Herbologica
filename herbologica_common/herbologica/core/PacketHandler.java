@@ -1,6 +1,5 @@
-package herbologica.network;
+package herbologica.core;
 
-import herbologica.lib.Reference;
 import herbologica.tileentity.crop.TileEntityBush;
 
 import java.io.ByteArrayInputStream;

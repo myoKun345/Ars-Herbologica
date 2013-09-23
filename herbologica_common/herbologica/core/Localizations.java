@@ -1,4 +1,4 @@
-package herbologica.lib;
+package herbologica.core;
 
 /**
  * Ars Herbologica

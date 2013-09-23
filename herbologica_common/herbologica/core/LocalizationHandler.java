@@ -1,6 +1,5 @@
 package herbologica.core;
 
-import herbologica.lib.Localizations;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 /**

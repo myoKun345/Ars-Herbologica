@@ -1,6 +1,6 @@
 package herbologica.api;
 
-import herbologica.lib.HerbologicaIDs;
+import herbologica.core.HerbologicaIDs;
 import net.minecraft.potion.Potion;
 import net.minecraftforge.fluids.Fluid;
 
