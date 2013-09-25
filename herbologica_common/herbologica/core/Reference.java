@@ -14,5 +14,6 @@ public class Reference {
 	public static final String MOD_NAME = "Ars Herbologica";
 	public static final String VERSION = "0.0.01.@@BUILD@@";
 	public static final String BUSH_CHANNEL = "arsbush";
+	public static final String VEG_CHANNEL = "arsveg";
 	public static final int ITEM_ID_CORRECTION = 256;
 }
