@@ -122,6 +122,7 @@ public class HerbologicaStuff {
 		HerbologicaAPI.addPlant("Canola", Reference.MOD_ID);
 		HerbologicaAPI.addPlant("Vanilla", Reference.MOD_ID);
 		HerbologicaAPI.addPlant("Tea", Reference.MOD_ID);
+		HerbologicaAPI.addPlant("Enderbloom", Reference.MOD_ID);
 	}
 	
 	public static void addVegetables() {
