@@ -1,22 +1,23 @@
 package herbologica.core;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraftforge.fluids.Fluid;
-import cpw.mods.fml.common.registry.GameRegistry;
 import herbologica.api.HerbologicaAPI;
 import herbologica.block.crop.BlockHerbologicaBush;
+import herbologica.block.crop.BlockPlant;
 import herbologica.block.fluid.BlockFluidCoffee;
 import herbologica.block.fluid.BlockFluidTea;
 import herbologica.block.util.ItemBlockHerbologicaBush;
+import herbologica.block.util.ItemBlockPlant;
 import herbologica.fluid.FluidCoffee;
 import herbologica.fluid.FluidTea;
 import herbologica.item.ItemCoffeeMug;
 import herbologica.item.ItemHerbologicaBerry;
 import herbologica.item.ItemHerbologicaFruit;
-import herbologica.item.ItemHerbologicaPlant;
 import herbologica.item.ItemHerbologicaVegetable;
 import herbologica.tileentity.crop.TileEntityBush;
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraftforge.fluids.Fluid;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 /**
  * Ars Herbologica
@@ -29,29 +30,30 @@ import herbologica.tileentity.crop.TileEntityBush;
 public class HerbologicaStuff {
 	
 	public static Block herbologicaBush;
+	public static Block herbologicaPlant;
 	public static Block coffeeFluidBlock;
 	public static Block teaFluidBlock;
 	
 	public static void addBlocks() {
 		herbologicaBush = new BlockHerbologicaBush(HerbologicaIDs.BUSH_BLOCK);
+		herbologicaPlant = new BlockPlant(HerbologicaIDs.PLANT);
 		coffeeFluidBlock = new BlockFluidCoffee(HerbologicaIDs.COFFEE_BLOCK);
 		teaFluidBlock = new BlockFluidTea(HerbologicaIDs.TEA_BLOCK);
 		
 		GameRegistry.registerBlock(herbologicaBush, ItemBlockHerbologicaBush.class, "blockBushHerbologica");
+		GameRegistry.registerBlock(herbologicaPlant, ItemBlockPlant.class, "blockPlantHerbologica");
 		GameRegistry.registerBlock(coffeeFluidBlock, "blockCoffeeFluid");
 		GameRegistry.registerBlock(teaFluidBlock, "blockTeaFluid");
 	}
 	
 	public static Item herbologicaBerry;
 	public static Item herbologicaFruit;
-	public static Item herbologicaPlant;
 	public static Item herbologicaVegetable;
 	public static Item herbologicaMug;
 	
 	public static void addItems() {
 		herbologicaBerry = new ItemHerbologicaBerry(HerbologicaIDs.BERRY);
 		herbologicaFruit = new ItemHerbologicaFruit(HerbologicaIDs.FRUIT);
-		herbologicaPlant = new ItemHerbologicaPlant(HerbologicaIDs.PLANT);
 		herbologicaVegetable = new ItemHerbologicaVegetable(HerbologicaIDs.VEGETABLE);
 		herbologicaMug = new ItemCoffeeMug(HerbologicaIDs.MUG);
 	}

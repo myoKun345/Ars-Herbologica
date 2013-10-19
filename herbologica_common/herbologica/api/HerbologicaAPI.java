@@ -42,7 +42,7 @@ public class HerbologicaAPI {
 	 * @param modid - Your mod id, to be used in the folder to store textures
 	 */
 	public static void addPlant(String name, String modid) {
-		HerbologicaIDs.PLANT_UNLOCALIZED.add("plant" + name);
+		HerbologicaIDs.PLANT_UNLOCALIZED.add("flower" + name);
 		HerbologicaIDs.PLANT_MOD_ID.add(modid);
 	}
 	

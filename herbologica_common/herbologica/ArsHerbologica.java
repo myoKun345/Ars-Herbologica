@@ -38,7 +38,7 @@ public class ArsHerbologica {
 	@Instance(Reference.MOD_ID)
 	public static ArsHerbologica instance;
 	
-	@SidedProxy(clientSide = "herbologica.proxy.ClientProxy", serverSide = "herbologica.proxy.CommonProxy")
+	@SidedProxy(clientSide = "herbologica.core.ClientProxy", serverSide = "herbologica.core.CommonProxy")
     public static CommonProxy proxy;
 	
 	public static CreativeTabs herbologicaTab = new HerbologicaCreativeTab(CreativeTabs.getNextID(), Reference.MOD_ID);
